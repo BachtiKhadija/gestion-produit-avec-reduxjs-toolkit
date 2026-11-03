@@ -30,7 +30,7 @@ const produitSlice = createSlice({
      //Ajouter un produit
     addProduit: (state, action) => {
       state.produits.push(action.payload);//modifier une copie généré immer 
-      console.log(state.produits);
+      console.table(state.produits);
     },
 
     // Supprimer un produit

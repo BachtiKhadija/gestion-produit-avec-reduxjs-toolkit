@@ -2,6 +2,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {deleteProduit,searchProduit,filterByCategory} from "../features/ProduitSlice";
+import { addToCart } from "../features/PanierSlice";
 
 const List=()=>{
 
@@ -195,6 +196,9 @@ const produitsFiltres = produitsRecherches.filter(p => categorie === "Toutes" ||
                           >
                             Supprimer
                           </button>
+                          <button className="btn btn-success btn-sm"  onClick={() => dispatch(addToCart(p))}>
+                              Ajouter au panier
+                         </button>
 
                         </div>
 

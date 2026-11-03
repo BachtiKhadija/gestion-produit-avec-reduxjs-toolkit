@@ -1,11 +1,21 @@
-import { Link } from "react-router-dom";
 
-const Navbar=()=>{   
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+function Navbar() {
+
+  const items = useSelector(
+    state => state.panier.items
+  );
+
+
+
   return (
     <nav className="navbar navbar-expand navbar-light bg-light border-bottom mb-4">
+
       <div className="container">
 
-        <Link to="/prouits" className="navbar-brand fw-bold">
+        <Link to="/" className="navbar-brand fw-bold">
           Gestion Produits
         </Link>
 
@@ -13,18 +23,29 @@ const Navbar=()=>{
 
           <li className="nav-item">
             <Link to="/" className="nav-link">
-              Liste des produits
+              Produits
             </Link>
           </li>
 
           <li className="nav-item">
             <Link to="/add" className="nav-link">
-              Ajouter un produit
+              Ajouter
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/cart" className="nav-link">
+              Panier
+              <span className="badge bg-danger ms-1">
+                {items.length}
+              </span>
             </Link>
           </li>
 
         </ul>
+
       </div>
+
     </nav>
   );
 }
